@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Contact Me</title>
+       
+    </head>
+    <body>
+        <div id="form">
+            <form action="https://httpbin.org/post" method="POST" name="contact" id="contactform">
+                <fieldset>
+                    <legend style="font-weight: 200; color: floralwhite; background-color: rgb(146, 6, 34);">CONTACT FORM</legend>
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" placeholder="Name goes here" required>
+                <br>  
+                  
+                <label for="email"> Email: </label>
+                <input type="email" name="email" id="email" placeholder="Email address goes here" required> 
+                    <br>  
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" placeholder="Address goes here" required>
+                  <br>
+                  <label for="city">City:</label>
+                  <input type="text" list="city" name="city" placeholder="City goes here" autocomplete required>    
+        <datalist id="city">	  	  
+            <option value="Toronto">
+            <option value="Montreal">	  
+            <option value="Winnipeg">	  
+            <option value="Calgary">    
+        </datalist>
+        <br>
+        <label for="postal">Postal Code:</label>
+        <input type="text" name="postal" id="postal" placeholder="Postal code goes here" required pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d">
+                  <br>
+                  <div id="about">
+                <fieldset >
+                    <legend style="font-weight: 200; color: floralwhite; background-color: rgb(146, 6, 34);">WHAT IS THIS ABOUT?</legend>
+                <div id = "list">
+                  <ul>
+                    <li><input type="radio" name="ques" id="ques-1" value="Question" onclick="change(this.id)"/>Question</li>   
+                    <li><input type="radio" name="ques" id="ques-2" value="Comment" onclick="change(this.id)"/>Comment</li>   
+                    <li><input type="radio" name="ques" id="ques-3" value="Hiring" onclick="change(this.id)"/>Hiring</li> 
+                  </ul>
+                </div>
+                  <div id="selectone">
+                      Please select an option
+                  </div>
+                    <div id="hiring">
+                        <label for=payrate>Payrate</label>
+                        <input type="text" name="payrate" id="payrate">
+                    </div>
+                </fieldset>
+            </div>
+                    <br>
+                    <label for="msg">Enter the message:</label>
+                    <Textarea name="msg" rows="5" cols="80" id="msg" required> </Textarea>
+                    <br>
+                    <br>
+                    </label>
+                    <input type="hidden" id="150228203" name="info" value="150228203(Harmeen Kaur)">
+                  <input id="entry-login" type="submit"  value="Submit" name="submit">
+                </fieldset>
+            </div>
+                </form> 
+                <footer id="bottom">
+                    &copy; 2021 Harmeen Kaur
+                </footer>
+<script>
+                   
+var formref = document.getElementById("contactform")
+formref.onsubmit = function(){
+var checked = false;  
+var radio_num = document.contact.ques.length;
+  for (var i = 0; i < radio_num; i++)  {
+      
+       if (document.contact.ques[i].checked) 
+       {     
+            checked = true;
+       }
+      
+    } 
+    if (checked == false)
+    {
+        var select = document.getElementById("selectone");
+        select.style.display = "block";
+       
+    }
+    return checked;
+}
+
+function change(id) {
+    var radioBtn = document.getElementById(id).value;
+    var pay = document.getElementById('hiring');
+    if(radioBtn=='Hiring'){
+        if(pay.style.display = "none"){
+            pay.style.display = "block";
+        }
+    }
+    else{
+        if(pay.style.display != "none"){
+            pay.style.display = "none";
+        }
+    }
+    
+}
+
+</script>
+<style>
+   
+    *{
+        background-color: beige;
+        margin-left: auto;
+        margin-right: auto;
+        viewport-fit: 90%;
+        max-width:1100px;
+    
+    }
+   #bottom
+    {
+        margin-top: 50px;
+        color: floralwhite;
+        background-color: rgb(146, 6, 34);
+       text-align: center;
+        font-family: 'Pacifico', cursive;
+
+    }
+    #form
+    { 
+        max-width: 1100px;
+    margin: 0 auto;
+    }
+    #contactform
+    {
+        width: auto;
+    margin: 0 auto;
+    
+    }
+    #hiring, #selectone
+    {
+        display: none;
+    }
+    #about
+    {
+       margin-left: auto;
+        padding: auto;
+        align-content: center;
+    }
+    #list
+    {
+        margin-left: 10px;
+        align-content: flex-start;
+        
+    }
+    
+
+
+</style>
+        </body>
+        </html>
